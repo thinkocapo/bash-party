@@ -6,41 +6,40 @@ function cleanup {
 trap cleanup EXIT
 
 play_song() {
-
-        # TODO pulls first in directory OR -songIndex parameter from cli
+        # prepare songs array
         SONGS=()
         for file in ./songs/*; do
                 SONGS+=("$(basename "$file")")
         done
 
+        # if (cli arg for song is set)
         SONG_NAME="${SONGS[2]}"
-
-        # TODO
-        #  if (SONG_NAME.isSet()) play SONG_NAME) else PLAY DEFAULT
+        # else { select songs[0] }
 
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 
 run() {
+        play_song
+
         clear
         for i in {100..1}
         do
                 clear
-                flash_text
+                text
                 echo ''
-                flash_text
+                text
                 echo ''
-                flash_text
+                text
                 echo ''
-                flash_text
-
+                text
                 sleep 0.05
                 clear
                 sleep 0.05
         done
 }
 
-flash_text() {
+text() {
         echo '███████╗███████╗███╗   ██╗████████╗██████╗ ██╗   ██╗██╗ ██████╗
 ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝██║██╔═══██╗
 ███████╗█████╗  ██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ ██║██║   ██║
@@ -49,7 +48,6 @@ flash_text() {
 ╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝╚═╝╚═╝ ╚═════╝'
 }
 
-play_song
 run
 
 
