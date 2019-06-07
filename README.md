@@ -1,87 +1,37 @@
+# sentry-echo-script
+
 # Dev RoadMap
-
-sentry-echo-script
-
-APPROACH
-/songs directory where you put your songs, and put #number of the song you want?
-song.txt(?) where you export a song
-read value exported by song.txt and this is the mp3 it looks for.
-
-
-### BASH KNOW-HOW & TECHNICAL FOUNDATION
-- passing arguments e.g. -r for 'random' song/color
-    http://linuxcommand.org/lc3_wss0120.php
-    while $1, case $1 in -f, -host, shift, $1
-- tmuxify
-
-- Makefile? command you call at anytime to number the songs ;) unecessary, overkill? unless Make can makeup for .sh scripts executing differently between systems
-- feed text from file
-- error handling? sentry somehow?
-
-### FEATURES
-- song, flag for randomizer, flag for song selection
-    - "put your song in here(?) or a path to it..."?
-- color. randomize at each start, or during. flags for this?
-COLORED TEXT...
-tput setaf 1; echo "this is red text"
-https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
-- default variable/file setting for username
-- comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?
-
-
-./boom.sh for default selection of songs/text, OR
-./boom.sh -song 1,2,3,4... --text <text_here>
-make
-
-
-2 APPROACHES....
-
-write filenames of the songs here...(AND PASTE THEM INTO PROJECT)
-#export SONG=~/path_to/the_songs_name.mp3
-#export SONG=another_song_name.mp3
-export SONG=you_get_songd.mp3
-
-OR
-
-put all songs into ./songs
-write the number (or filename?) of the song.
-
+### Minimum Viable Product
+1. flag for randomizer vs index for song selection. http://linuxcommand.org/lc3_wss0120.php ./boom.sh for default songs&text, OR ./boom.sh -song 1,2,3,4 --text <text_here>
+2. color. randomize at each start, or during. flags for this? tput setaf 1; echo "this is red text" https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+#### TBD
+3. comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?
+4. help with text to separate file
+5. tmux. splitting. piping... updating the text on the go...env var for colors...updating a shell env by command from a different shell.
+6. Makefile? command you call at anytime to number the songs ;) unecessary, overkill? unless Make can makeup for .sh scripts executing differently between systems
+7. error handling? sentry somehow? at the very least, have it written to a log file? is there a standard practice for shell scripts?
+8. pointers to songs? see Setup
 
 ### Setup
-Loop over files in a directory? cool but can't guarantee order....nor want to require physical pasting files to there...
-
-<songs.txt>
-# This file will get read by boom.sh (make). picks the first, or set random flag...
-# 1
-~/path_to/3842_is_the_song.mp3
-# 2
-~/path_to/dance_hits.mp3
-# or place some mp3's in this project's songs directory
-./songs/another_song_#$@.mp3
-
-/songs
-
-1| song1.mp3
-2| another_song_#$@.mp3
-3| 3842_is_the_song.mp3
-4|
-5|
-
-// Meh...
-// json in a shell file? ah, could run Node. NO should not have dependency on that...
-// would need apt-get install jq https://linuxhint.com/bash_jq_command/
+Three different approaches
+#### /songs directory
+put all songs into ./songs and script write(s) the number (or filename?) of the song? or users can re-name them numerically like 1_cake_the_distance.mp3, 2_offspring_gone_away.mp3. some kind of container to place these in?
+#### pointer to songs
+songs.txt with SONG1=jdilla_donuts.mp3
+songs.txt with SONG2=the_offspring_gone_away.mp3
+#### json dictionary for songs
 {
-    1: 'song1.mp3',
-    2: 'another_song_#$@.mp3'
+    1: '~/path_to/jdilla_donuts.mp3',
+    2: '~/Music/the_offspring_gone_away.mp3'
     3: '3842_is_the_song.mp3'
     4: '',
     5: ''
 }
 
-feel free to put them in ./songs and then reference that relative path
-
-
-BENEFIT of not needing Node, Python, apt-install(s),,,,ANYONE can run it...? TEST IT!!!!
+- could also put them in ./songs, and then reference that relative path (but this would feel like extra step).
+- **^^ maybe have it default check SONG=$SONG_PATH or the json dictionary, as well as /songs, in some order**
+- BENEFIT of not needing apt-installs, Node, Python, is that its lighter weight, more compatible, and want that anyone could run it it...?
+- TEST THIS^^ by giving it to other devs.
 
 
 ### Troubleshooting

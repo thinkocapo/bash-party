@@ -1,12 +1,12 @@
-# cleanup executes upon EXIT (termination, ctrl+c) of the script
+# executes upon EXIT (termination, ctrl+c) of the script
 function cleanup {
   echo "Stopping system/com.apple.audio.coreaudiod"
   kill 0
 }
 trap cleanup EXIT
 
+
 play_song() {
-        # prepare songs array
         SONGS=()
         for file in ./songs/*; do
                 SONGS+=("$(basename "$file")")
@@ -22,7 +22,7 @@ play_song() {
 run() {
         play_song
 
-        clear
+        clear #?
         for i in {100..1}
         do
                 clear
