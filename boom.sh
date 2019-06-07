@@ -12,9 +12,9 @@ play_song() {
                 SONGS+=("$(basename "$file")")
         done
 
-        # if (cli arg for song is set)
-        SONG_NAME="${SONGS[2]}"
-        # else { select songs[0] }
+        # if (cli arg for song index is set, then use that song)
+        SONG_NAME="${SONGS[0]}"
+        # else { select songs[0] default }
 
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
