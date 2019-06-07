@@ -12,8 +12,10 @@ read value exported by song.txt and this is the mp3 it looks for.
 - passing arguments e.g. -r for 'random' song/color
     http://linuxcommand.org/lc3_wss0120.php
     while $1, case $1 in -f, -host, shift, $1
+- tmuxify
+
+- Makefile? command you call at anytime to number the songs ;) unecessary, overkill? unless Make can makeup for .sh scripts executing differently between systems
 - feed text from file
-- Makefile? command you call at anytime to number the songs ;)
 - error handling? sentry somehow?
 
 ### FEATURES
