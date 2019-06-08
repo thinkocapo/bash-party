@@ -9,8 +9,8 @@ usage() {
 }
 
 # Get the --index passed from command-line
-# TODO theindex=0, does not connect to theindex in the while loop...
 # TODO scoping OR if no index set, then set it to 0 (after the while loop ends)
+export index=0
 while [ $# -gt 0 ]; do
                 case $1 in
                         --index | -index)       shift
@@ -28,11 +28,6 @@ play_music() {
         for file in ./songs/*; do
                 SONGS+=("$(basename "$file")")
         done
-
-        index=0
-
-        # if (--index) index=--index
-
 
         # ?
         # if (--index=random) randomize
