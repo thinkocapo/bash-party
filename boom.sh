@@ -10,13 +10,25 @@ usage() {
 
 # Get the --index passed from command-line
 # TODO scoping OR if no index set, then set it to 0 (after the while loop ends)
+# export argz=$# didnt' work...
+SONGS=()
+for file in ./songs/*; do
+        SONGS+=("$(basename "$file")")
+done
+length=${#SONGS[*]}
+
 export index=0
 while [ $# -gt 0 ]; do
                 case $1 in
                         --index | -index)       shift
                                                 index=$1
                                                 ;;
-                        --random)               index=7
+                        --random)               length=${#SONGS[*]}
+                                                ((lastElement = length - 1))
+                                                # echo $lastElement
+                                                echo 'lastElement is "$lastElement"' # ?
+                                                index=`shuf -i 0-${lastElement} -n 1`
+                                                # more readable way for random number generation? modularize at least?
                                                 ;;
                         * )                     usage
                                                 exit
@@ -26,14 +38,6 @@ done
 echo $index
 
 play_music() {
-        SONGS=()
-        for file in ./songs/*; do
-                SONGS+=("$(basename "$file")")
-        done
-
-        # ?
-        # if (--index=random) randomize
-
         SONG_NAME="${SONGS[index]}"
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
@@ -62,7 +66,7 @@ flash_text() {
 }
 run() {
         play_music
-        flash_text
+        # flash_text
 }
 run
 
