@@ -1,43 +1,51 @@
-# executes upon EXIT (ctrl+c termination) of boom.sh # system/com.apple.audio.coreaudiod
+# stops system/com.apple.audio.coreaudiod upon EXIT (ctrl+c termination)
 function stop_music {
   kill 0
 }
 trap stop_music EXIT
+
+usage1() {
+    echo  "$0: some help text"
+}
 
 play_music() {
         SONGS=()
         for file in ./songs/*; do
                 SONGS+=("$(basename "$file")")
         done
-        #index=0
-        # if (--index exists or is numerical, index=param)
-        # if (--index=random) randomize
-        SONG_NAME="${SONGS[0]}"
 
-        # else { select songs[index] default }
+        index=0
+
+        # while [ '$1' != "" ]; do
+        #         case $1 in
+        #                 --index | -index)       shift
+        #                                         filename=$1
+        #                                         ;;
+        #                 -i | --interactive )    interactive=1
+        #                                         ;;
+        #                 -h | --help )           usage
+        #                                         exit
+        #                                         ;;
+        #                 * )                     usage1
+        #                                         exit 1
+        #         esac
+        #         shift
+        # done
+        # echo $filename
+
+        # if (--index) index=--index
+
+
+        # ?
+        # if (--index=random) randomize
+
+        SONG_NAME="${SONGS[index]}"
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 
 run() {
         play_music
-        # TEXT=$(cat text.txt)
-        # TEXT=`~/projects-beta/sentry-echo-timer/dep/text.sh`
-        for i in {100..1}
-        do
-                clear
-                # echo $TEXT
-                # ~/projects-beta/sentry-echo-timer/text.sh
-                # ~/projects-beta/sentry-echo-timer/text.sh
-                # ~/projects-beta/sentry-echo-timer/text.sh
-                # ~/projects-beta/sentry-echo-timer/text.sh
-                text
-                text
-                text
-                text
-                sleep 0.05
-                clear
-                sleep 0.05
-        done
+        flash_text
 }
 
 text() {
@@ -48,6 +56,27 @@ text() {
 ███████║███████╗██║ ╚████║   ██║   ██║  ██║   ██║██╗██║╚██████╔╝
 ╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝╚═╝╚═╝ ╚═════╝'
         echo ''
+}
+flash_text() {
+        # echo...
+        # TEXT=$(cat text.txt)
+        # TEXT=`~/projects-beta/sentry-echo-timer/dep/text.sh`
+
+        for i in {100..1}
+                do
+                        clear
+                        # ~/projects-beta/sentry-echo-timer/text.sh
+                        # ~/projects-beta/sentry-echo-timer/text.sh
+                        # ~/projects-beta/sentry-echo-timer/text.sh
+                        # ~/projects-beta/sentry-echo-timer/text.sh
+                        text
+                        text
+                        text
+                        text
+                        sleep 0.05
+                        clear
+                        sleep 0.05
+        done
 }
 
 run
