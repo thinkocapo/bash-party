@@ -4,22 +4,25 @@ link_to_image or giffy_video
 1. Place a .mp3 in ./songs directory
 2. `./boom.sh`
 optional
-3. apt-get install figlet? or other command-line utility for ascii art, so can:
-./boom.sh --text=WAZZAP
 
 # Dev Road Map
 - Remember, there's a benefit of not needing apt-installs, Node, Python, is that its lighter weight, more compatible, and want that anyone could run it it? test this, give to someone else  
 
 **Minimum Viable Product**  
 still needs...
-1. Flag for randomizer vs index for song selection. http://linuxcommand.org/lc3_wss0120.php ./boom.sh for default songs&text, OR ./boom.sh -song 1,2,3,4 --text <text_here>
-2. parametize the text --text HERE, but then it isn't ascii art? needs to turn it into ascii art??? http://vcloud-lab.com/entries/powershell/powershell-trick-convert-text-to-ascii-art
-figlet
-https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
---name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
+5:19p
+Precedence
+--randomize or --index=n [nothing, defaults to 1st song]
+--index=random or --index=<n>
+1. Flag for randomizer vs index for song selection. http://linuxcommand.org/lc3_wss0120.php ./boom.sh 
+
+
+--color=<color> or --color=random
 2. Color. randomize at each start, or during. flags for this? tput setaf 1; echo "this is red text" https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 
 ## Optional Dev Items, TBD
+3.
+5:21P no, hold off. dragging-dropping mp3's is normal, expected, with audio players. but would be cool to "pointer" to the mp3 location? hmm
 ### Song selection order based on the options in in Setup?
 Three different approaches for this
 (and pass --path-to-song=~/$MY_MUSIC/song.mp3 takes precedence)
@@ -39,9 +42,18 @@ songs.txt with SONG2=~/Music/the_offspring_gone_away.mp3
 }
 ```
 #### other
+5:22p YES!?
 - comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?  
+- tmux. splitting. piping. updating the text on the go. e.g. env var for colors. Updating a shell env by command from a different shell?
+
+
+- 5:19p NOT for now...
+figlet
+https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
+--name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
+./boom.sh --text=WAZZAP. nah hold off for now, still might not render correctly?
+or would be good for repeating 1 single fontsize12 timesnewRoman word many times 
 - Help with text defined in separate file. it was losing margins and line breaks.  
-- tmux. splitting. piping. updating the text on the go. e.g. env var for colors. Updating a shell env by command from a different shell?  
 - Makefile? command you call at anytime to number the songs ;) unecessary, overkill? unless Make can makeup for .sh scripts executing differently between systems  
 - error handling? sentry somehow? at the very least, have it written to a log file? is there a standard practice for shell scripts?  
 - curl download a script that...installs/runs (i.e. opens a terminal? /bin/bash or other. serve from my.ip.address:PORT

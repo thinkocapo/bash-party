@@ -9,9 +9,12 @@ play_music() {
         for file in ./songs/*; do
                 SONGS+=("$(basename "$file")")
         done
-        # if (cli arg for song index is set, then use that song)
+        #index=0
+        # if (--index exists or is numerical, index=param)
+        # if (--index=random) randomize
         SONG_NAME="${SONGS[0]}"
-        # else { select songs[0] default }
+
+        # else { select songs[index] default }
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 
@@ -23,14 +26,14 @@ run() {
         do
                 clear
                 # echo $TEXT
-                ~/projects-beta/sentry-echo-timer/text.sh
-                ~/projects-beta/sentry-echo-timer/text.sh
-                ~/projects-beta/sentry-echo-timer/text.sh
-                ~/projects-beta/sentry-echo-timer/text.sh
-                # text
-                # text
-                # text
-                # text
+                # ~/projects-beta/sentry-echo-timer/text.sh
+                # ~/projects-beta/sentry-echo-timer/text.sh
+                # ~/projects-beta/sentry-echo-timer/text.sh
+                # ~/projects-beta/sentry-echo-timer/text.sh
+                text
+                text
+                text
+                text
                 sleep 0.05
                 clear
                 sleep 0.05
