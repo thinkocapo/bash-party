@@ -16,6 +16,8 @@ while [ $# -gt 0 ]; do
                         --index | -index)       shift
                                                 index=$1
                                                 ;;
+                        --random)               index=7
+                                                ;;
                         * )                     usage
                                                 exit
                 esac

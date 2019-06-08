@@ -39,22 +39,20 @@ songs.txt with SONG2=~/Music/the_offspring_gone_away.mp3
 }
 ```
 #### other
-- how can inner scope functions access $1 command-line passed args (global?)?
 - comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?  
 - tmux. splitting. piping. updating the text on the go. e.g. env var for colors. Updating a shell env by command from a different shell?
 - flash_text calling .sh that defines echo-text, repeatedly, is performance issue? seems odd to keep calling multiple scrips like this...per second.
-
-- 5:19p NOT for now...
-figlet
-https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
---name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
-./boom.sh --text=WAZZAP. nah hold off for now, still might not render correctly?
-or would be good for repeating 1 single fontsize12 timesnewRoman word many times 
 - Help with text defined in separate file. it was losing margins and line breaks.  
 - Makefile? command you call at anytime to number the songs ;) unecessary, overkill? unless Make can makeup for .sh scripts executing differently between systems  
 - error handling? sentry somehow? at the very least, have it written to a log file? is there a standard practice for shell scripts?  
 - curl download a script that...installs/runs (i.e. opens a terminal? /bin/bash or other. serve from my.ip.address:PORT
 - electron app? too many dependencies? reslies more on native OS? differences in OS/local dev environments may
+- NOT for now...figlet
+https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
+--name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
+./boom.sh --text=WAZZAP. nah hold off for now, still might not render correctly?
+or would be good for repeating 1 single fontsize12 timesnewRoman word many times 
+- edge case, where you pass no value for index `./boom.sh --index` it should default to index of 0
 
 ## Troubleshooting
 Song stuck on run? Try
