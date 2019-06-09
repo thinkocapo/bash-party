@@ -4,17 +4,18 @@ function stop_music {
 }
 trap stop_music EXIT
 
-usage() {
-    echo  "$0: you did not pass an index"
+warning() {
+    echo  "you did pass proper arguments"
 }
 
-# Get the --index passed from command-line
+# Prepare songs from ./songs in an indexed array
 SONGS=()
 for file in ./songs/*; do
         SONGS+=("$(basename "$file")")
 done
 num_songs=${#SONGS[*]}
 
+# Select a song (index) based on argument passed to boom.sh script
 export index=0
 while [ $# -gt 0 ]; do
                 case $1 in
@@ -23,9 +24,8 @@ while [ $# -gt 0 ]; do
                                                 ;;
                         --random)               ((lastSong = num_songs - 1))
                                                 index=`shuf -i 0-${lastSong} -n 1`
-                                                # more readable way for random number generation? modularize at least?
                                                 ;;
-                        * )                     usage
+                        * )                     warning
                                                 exit
                 esac
                 shift
@@ -59,8 +59,10 @@ flash_text() {
                         sleep 0.05
         done
 }
+
 run() {
         play_music
         flash_text 
 }
+
 run
