@@ -60,3 +60,12 @@ Song stuck on run? Try
 ps aux | grep '<part_of_song_mp3_name'
 kill <pid>
 ```
+
+
+### Gotcha's
+`echo 'lastElement is $lastElement'`
+# lastElement is $lastElement
+
+`echo "lastElement is $lastElement"`
+# 7
+`shuf` for random number generation
