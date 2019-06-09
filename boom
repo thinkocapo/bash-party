@@ -13,7 +13,7 @@ SONGS=()
 for file in ./songs/*; do
         SONGS+=("$(basename "$file")")
 done
-num_songs=${#SONGS[*]}
+length=${#SONGS[*]}
 
 export index=0
 while [ $# -gt 0 ]; do
@@ -21,8 +21,10 @@ while [ $# -gt 0 ]; do
                         --index | -index)       shift
                                                 index=$1
                                                 ;;
-                        --random)               ((lastSong = num_songs - 1))
-                                                index=`shuf -i 0-${lastSong} -n 1`
+                        --random)               length=${#SONGS[*]}
+                                                ((lastElement = length - 1))
+                                                echo "lastElement is $lastElement"
+                                                index=`shuf -i 0-${lastElement} -n 1`
                                                 # more readable way for random number generation? modularize at least?
                                                 ;;
                         * )                     usage
@@ -30,7 +32,7 @@ while [ $# -gt 0 ]; do
                 esac
                 shift
 done
-
+echo $index
 
 play_music() {
         SONG_NAME="${SONGS[index]}"
@@ -64,3 +66,5 @@ run() {
         flash_text 
 }
 run
+
+
