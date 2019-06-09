@@ -25,6 +25,9 @@ while [ $# -gt 0 ]; do
                         --random)               ((lastSong = num_songs - 1))
                                                 index=`shuf -i 0-${lastSong} -n 1`
                                                 ;;
+                        --color)                color=`shuf -i 0-7 -n 1`
+                                                tput setaf $color
+                                                ;;
                         * )                     warning
                                                 exit
                 esac

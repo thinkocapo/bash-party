@@ -23,8 +23,9 @@
 Avoid dependencies and installs as this keeps it light weight and compatible.
 
 #### Minimum Viable Product
-1. Color. randomize at each start, or during. flags for this? tput setaf 1; echo "this is red text" https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
---color=<color> or --color=random or...
+1. --color randomize
+tput setaf 1; echo "this is red text"
+https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 2. --path ~/<path_to_song.mp3>
 3. tmux pipe command to change color
 4. multiplayer mode
@@ -72,3 +73,25 @@ echo 'lastElement is $lastElement'
 echo "lastElement is $lastElement"
 # 7
 ```
+
+
+
+whaaaat
+
+
+set -x			# activate debugging from here
+w #good if not sure what w gonna do
+set +x			# stop debugging from here
+
+experiment with...?
+set -f	set -o noglob	Disable file name generation using metacharacters (globbing).
+set -v	set -o verbose	Prints shell input lines as they are read.
+set -x	set -o xtrace	Print command traces before executing command.
+
+
+https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_06.html
+Additionally it shows all the services started up in runlevel 3 on your system. (hint: use HOME, TERM and ls /etc/rc3.d/S*) ?
+
+
+^^
+"Make errors in your script: see what happens if you misspell commands, if you leave out the first line or put something unintelligible there, or if you misspell shell variable names or write them in lower case characters after they have been declared in capitals. Check what the debug comments say about this."
