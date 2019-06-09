@@ -17,19 +17,24 @@
 
 # 
 ./boom.sh --path ~/Music/down_rodeo.mp3
+
+# adds COLOR
+./boom.sh --color
 ```
+
+### Features
+- random song
+- color...
+- ...?
 
 # Dev Road Map
 Avoid dependencies and installs as this keeps it light weight and compatible.
 
 #### Minimum Viable Product
-1. --color randomize
-tput setaf 1; echo "this is red text"
-https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
-2. --path ~/<path_to_song.mp3>
+1. --path ~/<path_to_song.mp3>
+2. multiplayer mode YEAH!!!!
 3. tmux pipe command to change color
-4. multiplayer mode
-5. 'text' is separate files, had many problems with this (margins, line breaks)
+4. 'text' is separate files, had many problems with this (margins, line breaks)
 
 
 
