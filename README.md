@@ -2,8 +2,9 @@
 [link_to_image or giffy_video]
 
 ### Setup
-1. Place a .mp3 in ./songs directory
-2. run the boom script :)
+1. create empty songs directory `mkdir songs`
+2. Place your mp3's in ./songs
+3. run the boom script :)
 ``` bash
 # plays the first song in the directory
 `./boom.sh`
