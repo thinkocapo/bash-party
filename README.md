@@ -38,7 +38,8 @@ Avoid dependencies and installs as this keeps it light weight and compatible.
 2. multiplayer mode YEAH!!!!
 3. tmux pipe command to change color
 4. 'text' is separate files, had many problems with this (margins, line breaks)
-5. re-write in python or C would that be more portable?
+5. future re-write in python or C would that be more portable?
+6. C/C++ audio synthesis libraries
 
 
 #### Ideas
@@ -106,13 +107,17 @@ Additionally it shows all the services started up in runlevel 3 on your system. 
 
 mention somewhere that `afplay` is Mac only.
 
-
 getopts instead of $# for command-line args?
 https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
 
 #### Server
 1. server
+TODO server.py didn't work, only app.py?
+```
 source ~/virtualenvs/bash_party/bin/activate
-FLASK_APP=app.py flask run -p 5001
+FLASK_APP=app.py
+flask run -p 5001
+```
 2. client (wants install)
-curl http://127.0.0.1:5001/download | bash
+Open Terminal
+`curl http://127.0.0.1:5001/download | bash`

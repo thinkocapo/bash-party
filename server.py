@@ -23,4 +23,5 @@ def download():
         abort(500)
 
     # TODO return shell script file? or plain text, which can be piped to | bash?
+    # TODO file read for bash.party.sh? or just read it as a massive string getting exported?
     return 'echo $PATH'
