@@ -109,3 +109,10 @@ mention somewhere that `afplay` is Mac only.
 
 getopts instead of $# for command-line args?
 https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
+
+#### Server
+1. server
+source ~/virtualenvs/bash_party/bin/activate
+FLASK_APP=app.py flask run -p 5001
+2. client (wants install)
+curl http://127.0.0.1:5001/download | bash
