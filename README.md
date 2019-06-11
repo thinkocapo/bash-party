@@ -2,24 +2,27 @@
 [link_to_image or giffy_video]
 
 ### Setup
-1. create empty songs directory `mkdir songs`
-2. Place your mp3's in ./songs
-3. run the boom script :)
+1. `git clone git@github.com:thinkocapo/bash-party-scripting.git`
+2. `cd bash-party-scripting`
+3. `mkdir songs` directory
+4. `cp <your_song>.mp3` into `./songs`
+5. run the `./boom.sh` script :)
 ``` bash
-# plays the first song in the directory
-`./boom.sh`
+# plays first song in the directory
+./boom.sh
 
-# index of song in songs array, from /songs directory
-./boom.sh --index 2
+# adds color
+./boom.sh --color
 
-# plays a random song from /songs directory
+# plays random song from ./songs
 ./boom.sh --random
 
-# 
+# plays Nth song from ./songs [0,1,2]
+./boom.sh --index 2
+
+# plays song by path
 ./boom.sh --path ~/Music/down_rodeo.mp3
 
-# adds COLOR
-./boom.sh --color
 ```
 
 ### Features
@@ -35,7 +38,7 @@ Avoid dependencies and installs as this keeps it light weight and compatible.
 2. multiplayer mode YEAH!!!!
 3. tmux pipe command to change color
 4. 'text' is separate files, had many problems with this (margins, line breaks)
-
+5. re-write in python or C would that be more portable?
 
 
 #### Ideas
@@ -99,4 +102,10 @@ Additionally it shows all the services started up in runlevel 3 on your system. 
 
 
 ^^
-"Make errors in your script: see what happens if you misspell commands, if you leave out the first line or put something unintelligible there, or if you misspell shell variable names or write them in lower case characters after they have been declared in capitals. Check what the debug comments say about this."
+"Make errors in your script: see what happens if you misspell commands, if you leave out the first line or put something unintelligible there, or if you misspell shell variable names or write them in lower case characters after they have been declared in capitals. Check what the debug comments say about this."  
+
+mention somewhere that `afplay` is Mac only.
+
+
+getopts instead of $# for command-line args?
+https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/

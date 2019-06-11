@@ -1,3 +1,19 @@
+# Will's server hosts `127.0.1.43/bashparty.sh` but this needs to open a Terminal and open everything below...
+# `curl 127.0.1.43/bashparty.sh` would be easier because they could open Terminal first...?
+
+# HOW .sh that calls Terminal (binary, executable) and passes a script for it to run open opening?
+
+# SETUP
+# Make a ./ songs Directory
+mkdir songs
+touch songs/first_songs.mp3
+
+# GET A SONG
+# Check if mp3 already in /songs. If not, then...
+        # Will 127.0.1.241/song endpoint`send_file` https://pythonprogramming.net/flask-send-file-tutorial/
+        # returns full song.mp3
+
+######## RESUME AS NORMAL ########
 # Stops the process system/com.apple.audio.coreaudiod upon EXIT (ctrl+c termination)
 stop_music () {
   kill 0
@@ -41,7 +57,6 @@ play_music() {
 }
 
 text() {
-        # replace char's one by one
         echo '███████╗███████╗███╗   ██╗████████╗██████╗ ██╗   ██╗██╗ ██████╗
 ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝██║██╔═══██╗
 ███████╗█████╗  ██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ ██║██║   ██║
@@ -51,7 +66,6 @@ text() {
         echo ''
 }
 flash_text() {
-        # TODO hex value
         for i in {100..1}
                 do
                         clear
