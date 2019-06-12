@@ -25,3 +25,5 @@ def download():
     # TODO return shell script file? or plain text, which can be piped to | bash?
     # TODO file read for bash.party.sh? or just read it as a massive string getting exported?
     return 'echo $PATH'
+    # TODO https://www.reddit.com/r/bash/comments/26ov29/how_to_pipe_curl_output_to_afplay/
+    # Pretty sure afplay can't read from stdin, from file only.
