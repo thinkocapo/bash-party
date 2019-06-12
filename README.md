@@ -17,7 +17,7 @@
 # plays random song from ./songs
 ./boom.sh --random
 
-# plays Nth song from ./songs [0,1,2]
+# plays 3rd song from ./songs [0,1,2]
 ./boom.sh --index 2
 
 # plays song by path
@@ -25,46 +25,34 @@
 
 ```
 
-### Features
-- random song
-- color...
-- ...?
-
 # Dev Road Map
 Avoid dependencies and installs as this keeps it light weight and compatible.
 
 #### Minimum Viable Product
 1. --path ~/<path_to_song.mp3>
-2. multiplayer mode YEAH!!!!
+2. bash.party.sh multiplayer
 3. tmux pipe command to change color
 4. 'text' is separate files, had many problems with this (margins, line breaks)
-5. future re-write in python or C would that be more portable?
-6. C/C++ audio synthesis libraries
-
 
 #### Ideas
 - comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?  
-
 - flash_text calling .sh that defines echo-text, repeatedly, is performance issue? seems odd to keep calling multiple scrips like this...per second.
-
 - Makefile. `make boom` wasn't working
 
-- "multiplayer" curl download a script that...installs/runs (i.e. opens a terminal? /bin/bash or other. serve from my.ip.address:PORT
+
+Makefile make' install script? for getting dependencies
+- Linux Variant
 - Ascii Art Generator Dependency called 'figlet'
 https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
 --name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
 ./boom.sh --text=WAZZAP. nah hold off for now, still might not render correctly?
-or would be good for repeating 1 single fontsize12 timesnewRoman word many times 
+or would be good for repeating 1 single fontsize12 timesnewRoman word many times
+
+Other:
 - electron app? too many dependencies? reslies more on native OS? differences in OS/local dev environments may
-- dictionary or map file of songs
-```
-{
-    1: '<path_to_your.mp3>',
-    2: './songs/rock_jam.mp3'
-}
-1 <path_to_your.mp3>
-2 ./songs/rock_jam.mp3
-```
+- future re-write in python or C would that be more portable?
+- C/C++ audio synthesis libraries
+
 
 ## Troubleshooting
 #### Song stuck on run? Try
@@ -74,13 +62,22 @@ kill <pid>
 ```
 
 
-#### Gotcha's
+#### Gotcha's / Learned
 ``` bash
 echo 'lastElement is $lastElement'
 # lastElement is $lastElement
 
 echo "lastElement is $lastElement"
 # 7
+```
+- bash not good for dictionary or map file of songs, seek python
+```
+{
+    1: '<path_to_your.mp3>',
+    2: './songs/rock_jam.mp3'
+}
+1 <path_to_your.mp3>
+2 ./songs/rock_jam.mp3
 ```
 
 
