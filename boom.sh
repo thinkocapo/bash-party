@@ -17,6 +17,8 @@ NUM_SONGS=${#SONGS[*]}
 
 # Select a song by it's index, randomize or colorize
 export INDEX=0
+export color = false
+
 while [ $# -gt 0 ]; do
                 case $1 in
                         --index | -index)       shift
@@ -25,8 +27,9 @@ while [ $# -gt 0 ]; do
                         --random)               ((lastSong = NUM_SONGS - 1))
                                                 INDEX=`shuf -i 0-${lastSong} -n 1`
                                                 ;;
-                        --color)                color=`shuf -i 0-7 -n 1`
-                                                tput setaf $color
+                        --color)                color=true
+                                                # color=`shuf -i 0-7 -n 1`
+                                                # tput setaf $color
                                                 ;;
                         * )                     warning
                                                 exit
@@ -44,7 +47,6 @@ play_music() {
 # or...
 # pass color into text function...
 text() {
-        # Instructions - paste in Ascii text then shift top row to the right, trial & error
         echo '███████╗███████╗███╗   ██╗████████╗██████╗ ██╗   ██╗██╗ ██████╗
 ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝██║██╔═══██╗
 ███████╗█████╗  ██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ ██║██║   ██║
@@ -53,11 +55,20 @@ text() {
 ╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝╚═╝╚═╝ ╚═════╝'
         echo ''
 }
+setColor() {
+        if [ $color = true ]
+                then
+                        randomColor=`shuf -i 0-7 -n 1`
+                        tput setaf $randomColor
+        fi
+        # colorRandom=`shuf -i 0-7 -n 1`
+        # tput setaf $colorRandom
+}
 flash_text() {
         for i in {100..1}
                 do
                         clear
-                        # TODO generate random color hex value, pass to text(color)
+                        setColor
                         text
                         text
                         text
