@@ -6,7 +6,9 @@
 2. `cd bash-party-scripting`
 3. `mkdir songs` directory
 4. `cp <your_song>.mp3` into `./songs`
-5. run the `./boom.sh` script :)
+
+### Run
+1. `./boom.sh` script with the following options:
 ``` bash
 # plays first song in the directory
 ./boom.sh
@@ -25,89 +27,29 @@
 
 ```
 
-# Dev Road Map
-Avoid dependencies and installs as this keeps it light weight and compatible.
-
-#### Minimum Viable Product
-1. --path ~/<path_to_song.mp3>
-2. bash.party.sh multiplayer
-3. tmux pipe command to change color
-4. 'text' is separate files, had many problems with this (margins, line breaks)
-
-#### Ideas
-- comes with 1 default song? lookup 'sharing/storing mp3's in github' too big? privacy/license issue?  
-- flash_text calling .sh that defines echo-text, repeatedly, is performance issue? seems odd to keep calling multiple scrips like this...per second.
-- Makefile. `make boom` wasn't working
-
-
-Makefile make' install script? for getting dependencies
-- Linux Variant
+### Notes
 - Ascii Art Generator Dependency called 'figlet'
-https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/ 
---name will use figlet, but this is OPTIONAL. and it takes PRECEDENCE over the `echo 'text'` inside the text shell function 
-./boom.sh --text=WAZZAP. nah hold off for now, still might not render correctly?
+https://www.shellhacks.com/create-ascii-text-banner-linux-command-line/
+- ./boom.sh --text=WAZZAP
 or would be good for repeating 1 single fontsize12 timesnewRoman word many times
 
-Other:
-- electron app? too many dependencies? reslies more on native OS? differences in OS/local dev environments may
-- future re-write in python or C would that be more portable?
-- C/C++ audio synthesis libraries
 
 
-## Troubleshooting
+### Troubleshooting
 #### Song stuck on run? Try
 ``` bash
 ps aux | grep '<part_of_song_mp3_name>'
 kill <pid>
 ```
+#### debugging the script
+set -f	set -o noglob	# Disable file name generation using metacharacters (globbing).
+set -v	set -o verbose	# Prints shell input lines as they are read.
+set -x	set -o xtrace	# Print command traces before executing command.
+#### note
+`afplay` is Mac only.
 
 
-#### Gotcha's / Learned
-``` bash
-echo 'lastElement is $lastElement'
-# lastElement is $lastElement
-
-echo "lastElement is $lastElement"
-# 7
-```
-- bash not good for dictionary or map file of songs, seek python
-```
-{
-    1: '<path_to_your.mp3>',
-    2: './songs/rock_jam.mp3'
-}
-1 <path_to_your.mp3>
-2 ./songs/rock_jam.mp3
-```
-
-
-
-whaaaat
-
-
-set -x			# activate debugging from here
-w #good if not sure what w gonna do
-set +x			# stop debugging from here
-
-experiment with...?
-set -f	set -o noglob	Disable file name generation using metacharacters (globbing).
-set -v	set -o verbose	Prints shell input lines as they are read.
-set -x	set -o xtrace	Print command traces before executing command.
-
-
-https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_06.html
-Additionally it shows all the services started up in runlevel 3 on your system. (hint: use HOME, TERM and ls /etc/rc3.d/S*) ?
-
-
-^^
-"Make errors in your script: see what happens if you misspell commands, if you leave out the first line or put something unintelligible there, or if you misspell shell variable names or write them in lower case characters after they have been declared in capitals. Check what the debug comments say about this."  
-
-mention somewhere that `afplay` is Mac only.
-
-getopts instead of $# for command-line args?
-https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/
-
-#### Server
+#### Server?
 1. server
 TODO server.py didn't work, only app.py?
 ```

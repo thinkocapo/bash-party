@@ -40,8 +40,11 @@ play_music() {
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 
+# COLOR=''
+# or...
+# pass color into text function...
 text() {
-        # replace char's one by one
+        # Instructions - paste in Ascii text then shift top row to the right, trial & error
         echo '███████╗███████╗███╗   ██╗████████╗██████╗ ██╗   ██╗██╗ ██████╗
 ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝██║██╔═══██╗
 ███████╗█████╗  ██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ ██║██║   ██║
@@ -51,10 +54,10 @@ text() {
         echo ''
 }
 flash_text() {
-        # TODO hex value
         for i in {100..1}
                 do
                         clear
+                        # TODO generate random color hex value, pass to text(color)
                         text
                         text
                         text
