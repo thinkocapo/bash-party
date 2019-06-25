@@ -54,9 +54,15 @@ set -x	set -o xtrace	# Print command traces before executing command.
 TODO server.py didn't work, only app.py?
 ```
 source ~/virtualenvs/bash_party/bin/activate
-FLASK_APP=app.py
+FLASK_APP=server.py
 flask run -p 5001
 ```
 2. client (wants install)
 Open Terminal
 `curl http://127.0.0.1:5001/download | bash`
+
+
+
+TODO
+--text textyouwanttoappear
+^^ try once more

@@ -1,6 +1,9 @@
 import os
 from flask import Flask, request, json, abort
 from flask_cors import CORS
+import subprocess
+from subprocess import Popen, PIPE
+from subprocess import check_output
 
 # import sentry_sdk
 # from sentry_sdk.integrations.flask import FlaskIntegration
@@ -13,17 +16,32 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+print "YEAAAH"
+
+@app.route('/send', methods=['GET'])
+def send():
+    print "----------- SENDING... ----------'"
+    # subprocess.call(['./boom.sh'], stdout=PIPE, stderr=PIPE)
+
+    # session = subprocess.Popen(['./boom.sh'], stdout=PIPE, stderr=PIPE)
+    # stdout, stderr = session.communicate()
+    # if stderr:
+    #     raise Exception("Error "+str(stderr))
+    # return stdout.decode('utf-8')
+
+    # MAYBE STOP the process then run boom.sh
+    stdout = check_output(['./boom.sh']).decode('utf-8')
+    return stdout
+
+    return "SUCCESS"
+
+
+# IGNORE
 @app.route('/download', methods=['GET'])
 def download():
-    print "----------- download ----------'"
     try:
         print "things"
-        # '2' + 2
     except Exception as err:
         abort(500)
-
-    # TODO return shell script file? or plain text, which can be piped to | bash?
-    # TODO file read for bash.party.sh? or just read it as a massive string getting exported?
+    # works if they're doing "curl localhost/download | bash"
     return 'echo $PATH'
-    # TODO https://www.reddit.com/r/bash/comments/26ov29/how_to_pipe_curl_output_to_afplay/
-    # Pretty sure afplay can't read from stdin, from file only.

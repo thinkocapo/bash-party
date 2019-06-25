@@ -28,8 +28,6 @@ while [ $# -gt 0 ]; do
                                                 INDEX=`shuf -i 0-${lastSong} -n 1`
                                                 ;;
                         --color)                color=true
-                                                # color=`shuf -i 0-7 -n 1`
-                                                # tput setaf $color
                                                 ;;
                         * )                     warning
                                                 exit
@@ -43,9 +41,6 @@ play_music() {
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 
-# COLOR=''
-# or...
-# pass color into text function...
 text() {
         echo '███████╗███████╗███╗   ██╗████████╗██████╗ ██╗   ██╗██╗ ██████╗
 ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝██║██╔═══██╗
@@ -56,15 +51,13 @@ text() {
         echo ''
 }
 setColor() {
-        if [ $color = true ]
+        if [ $color = true ]:
                 then
                         randomColor=`shuf -i 0-7 -n 1`
                         tput setaf $randomColor
         fi
-        # colorRandom=`shuf -i 0-7 -n 1`
-        # tput setaf $colorRandom
 }
-flash_text() {
+flash_text_sentry() {
         for i in {100..1}
                 do
                         clear
@@ -78,10 +71,24 @@ flash_text() {
                         sleep 0.05
         done
 }
-
+flash_text_argument() {
+        for i in {100..1}
+                do
+                        clear
+                        setColor
+                        echo 'thing'
+                        echo 'thing'
+                        echo 'thing'
+                        echo 'thing'
+                        sleep 0.05
+                        clear
+                        sleep 0.05
+        done
+}
 run() {
         play_music
-        flash_text 
+        flash_text_sentry
+        # flash_text_argument
 }
 
 run
