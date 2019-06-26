@@ -50,11 +50,12 @@ text() {
 ╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝╚═╝╚═╝ ╚═════╝'
         echo ''
 }
+
 setColor() {
-        if [ $color = true ]:
-                then
-                        randomColor=`shuf -i 0-7 -n 1`
-                        tput setaf $randomColor
+        if [ "$color" = true ]
+        then
+                randomColor=`shuf -i 0-7 -n 1`
+                tput setaf $randomColor
         fi
 }
 flash_text_sentry() {
