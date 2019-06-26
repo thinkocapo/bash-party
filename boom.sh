@@ -17,7 +17,8 @@ NUM_SONGS=${#SONGS[*]}
 
 # Select a song by it's index, randomize or colorize
 export INDEX=0
-export color = false
+export color=false #TODO it was color = false ?
+export TEXT=""
 
 while [ $# -gt 0 ]; do
                 case $1 in
@@ -28,6 +29,9 @@ while [ $# -gt 0 ]; do
                                                 INDEX=`shuf -i 0-${lastSong} -n 1`
                                                 ;;
                         --color)                color=true
+                                                ;;
+                        --text)                 shift
+                                                TEXT=$1
                                                 ;;
                         * )                     warning
                                                 exit
@@ -77,10 +81,12 @@ flash_text_argument() {
                 do
                         clear
                         setColor
-                        echo 'thing'
-                        echo 'thing'
-                        echo 'thing'
-                        echo 'thing'
+                        # stringbuilder, the argument
+                        # function that echo's each of these horizontally, maybe a string builder?
+                        echo $TEXT
+                        echo $TEXT
+                        echo $TEXT
+                        echo $TEXT
                         sleep 0.05
                         clear
                         sleep 0.05
