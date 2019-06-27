@@ -29,10 +29,11 @@
 ps aux | grep '<part_of_song_mp3_name>'
 kill <pid>
 ```
-#### debugging in bash
+#### Debugging in bash
 ```
 set -x
+...
 set +x
 ```
-#### note
+#### Operating System
 `afplay` is supported by Mac only.

@@ -5,7 +5,7 @@ stop_music () {
 trap stop_music EXIT
 
 warning() {
-    echo  "you did pass proper arguments"
+    echo  "you didn't pass proper arguments"
 }
 
 # Prepare songs from ./songs in an indexed array
