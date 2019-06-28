@@ -18,7 +18,7 @@ NUM_SONGS=${#SONGS[*]}
 
 
 # Select a song by it's index, randomize or colorize
-export INDEX=1
+export INDEX=0
 export COLOR=false
 export TEXT=""
 while [ $# -gt 0 ]; do
