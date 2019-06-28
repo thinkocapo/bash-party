@@ -1,5 +1,4 @@
 # bash-party-scripting
-[link_to_image or giffy_video]
 
 ## Setup
 1. `git clone git@github.com:thinkocapo/bash-party-scripting.git`
