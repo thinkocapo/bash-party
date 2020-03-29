@@ -23,7 +23,7 @@ export COLOR=false
 export TEXT=""
 while [ $# -gt 0 ]; do
                 case $1 in
-                        --index)       shift
+                        --index)                shift
                                                 INDEX=$1
                                                 ;;
                         --random)               ((lastSong = NUM_SONGS - 1))
