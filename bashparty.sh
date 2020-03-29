@@ -8,6 +8,7 @@ warning() {
     echo  "you didn't pass proper arguments"
 }
 
+
 # Prepare songs from ./songs in an indexed array
 SONGS=()
 for file in ./songs/*; do
@@ -15,9 +16,10 @@ for file in ./songs/*; do
 done
 NUM_SONGS=${#SONGS[*]}
 
+
 # Select a song by it's index, randomize or colorize
-export INDEX=1
-export color=false
+export INDEX=0
+export COLOR=false
 export TEXT=""
 while [ $# -gt 0 ]; do
                 case $1 in
@@ -25,9 +27,9 @@ while [ $# -gt 0 ]; do
                                                 INDEX=$1
                                                 ;;
                         --random)               ((lastSong = NUM_SONGS - 1))
-                                                INDEX=`shuf -i 1-${lastSong} -n 1`
+                                                INDEX=`shuf -i 0-${lastSong} -n 1`
                                                 ;;
-                        --color)                color=true
+                        --color)                COLOR=true
                                                 ;;
                         --text)                 shift
                                                 TEXT=$1
@@ -38,20 +40,19 @@ while [ $# -gt 0 ]; do
                 shift
 done
 
-
 play_music() {
         SONG_NAME="${SONGS[INDEX]}"
         afplay "./songs/$SONG_NAME" &>/dev/null &
 }
 setColor() {
-        if [ "$color" = true ]
+        if [ "$COLOR" = true ]
         then
                 randomColor=`shuf -i 0-7 -n 1`
                 tput setaf $randomColor
         fi
 }
 strobe_light() {
-        while true; do 
+        while true; do
 	        clear
                 setColor
                 text
