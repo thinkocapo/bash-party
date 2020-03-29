@@ -1,6 +1,6 @@
 # bash-party-scripting
 <!-- ![gif](bash-party-0.gif | width=250) -->
-<img src="./bash-party-0.gif" width="450" height="300">
+<img src="./bash-party.gif" width="450" height="300">
 
 ## Setup
 1. `git clone git@github.com:thinkocapo/bash-party-scripting.git`
