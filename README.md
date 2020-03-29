@@ -1,8 +1,6 @@
 # bash-party-scripting
-:tada: :sound: :loud_sound: [Music not shown] :sound: :loud_sound: :tada:  
+:tada: :sound: :loud_sound: [run it to hear the Music] :sound: :loud_sound: :tada:  
 
-:soccer:  
-:smile:  
 <!-- ![gif](bash-party-0.gif | width=250) -->
 <img src="./bash-party.gif" width="450" height="300">
 
