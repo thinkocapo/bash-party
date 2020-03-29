@@ -9,7 +9,7 @@
 4. `cp your_song.mp3 ./songs`
 
 ## Run
-1. `./bashparty.sh` script with the following options:
+1. `./bashparty.sh` with the following options:
 ``` bash
 # plays first song in the directory
 ./bashparty.sh
@@ -25,16 +25,16 @@
 ```
 
 ## Troubleshooting
-#### Song stuck running? Try
+When I was developing this the song got stuck running once.
 ``` bash
 ps aux | grep '<part_of_song_mp3_name>'
 kill <pid>
 ```
-#### Debugging in bash
+Debugging a script
 ```
 set -x
 ...
 set +x
 ```
-#### Operating System
-`afplay` is supported by Mac only.
+
+Mac comes with `afplay` for linux you'll need something different.
