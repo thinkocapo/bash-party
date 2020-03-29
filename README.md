@@ -1,4 +1,6 @@
 # bash-party-scripting
+:soccer:  
+:smile:  
 <!-- ![gif](bash-party-0.gif | width=250) -->
 <img src="./bash-party.gif" width="450" height="300">
 
