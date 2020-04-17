@@ -6,7 +6,7 @@
 ## Setup
 1. `git clone git@github.com:thinkocapo/bash-party-scripting.git`
 2. `cd bash-party-scripting`
-3. `cp your_song.mp3 ./songs` or use the 5-second augio file that's already there
+3. `cp your_song.mp3 ./songs` or use the 5-second audio file that's already there
 
 ## Run
 1. `./bashparty.sh` with the following options:
