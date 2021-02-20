@@ -1,4 +1,4 @@
-# bash-party-scripting
+# bash-party
 :tada: :sound: :loud_sound: [Music] :sound: :loud_sound: :tada:  
 
 <img src="./bash-party.gif" width="450" height="300">
